@@ -9,7 +9,7 @@ git remote add heroku $HEROKU_GIT_URL
 
 echo " "
 echo "========> Updating app..."
-git push heroku master:master
+git remote -v
 
 echo " "
 echo "========> Done!"

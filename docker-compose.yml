@@ -6,12 +6,12 @@ services:
     stdin_open: true
     tty: true
     ports:
-      - 3000:3000
+      - 3999:3999
       - 9229:9229
     volumes:
       - .:/app
     environment:
-      PORT: 3000
+      PORT: 3999
       NODE_ENV: development
       REDIS_URL: redis://redis:6379
 

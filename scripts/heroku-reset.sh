@@ -9,28 +9,28 @@ heroku apps:destroy $HEROKU_APP_NAME --confirm $HEROKU_APP_NAME
 
 echo " "
 echo "========> Creating environment..."
-heroku create $HEROKU_APP_NAME --buildpack https://github.com/jontewks/puppeteer-heroku-buildpack.git
+heroku create $HEROKU_APP_NAME
 
+echo " "
+echo "========> Setting buildpacks..."
+heroku buildpacks:add jontewks/puppeteer --app $HEROKU_APP_NAME
+heroku buildpacks:add heroku/nodejs --app $HEROKU_APP_NAME
+
+echo " "
+echo "========> Setting redis..."
+heroku addons:create heroku-redis:hobby-dev --app $HEROKU_APP_NAME
+
+echo " "
+echo "========> Setting environment variables..."
+heroku config:set NODE_ENV="production" BASE_URL="$BASE_URL" --app $HEROKU_APP_NAME
 
 echo " "
 echo "========> Sending app..."
 git push heroku master
 
-
 echo " "
 echo "========> Scaling environment..."
 heroku ps:scale web=1 --app $HEROKU_APP_NAME
-
-echo " "
-echo "========> Setting environment variables..."
-heroku config:set \
-  NODE_ENV="production" \
-  BASE_URL="$BASE_URL" \
-  --app $HEROKU_APP_NAME
-
-echo " "
-echo "========> Setting redis..."
-heroku addons:create heroku-redis:hobby-dev --app $HEROKU_APP_NAME
 
 echo " "
 echo "========> Done!"

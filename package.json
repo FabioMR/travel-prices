@@ -1,14 +1,17 @@
 {
   "name": "travel-prices",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
+  "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon --exec 'kill-port --port 9229 && node --inspect=0.0.0.0:9229 index.js'",
     "build": "node build/build.js"
   },
+  "author": "Fábio Rodrigues <fabio.info@gmail.com>",
+  "license": "ISC",
   "engines": {
-    "node": "10.15.0"
+    "node": "8.15.0"
   },
   "dependencies": {
     "bee-queue": "^1.2.2",
