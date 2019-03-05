@@ -7,7 +7,7 @@ services:
     tty: true
     ports:
       - 3999:3999
-      - 9229:9229
+      - 9999:9999
     volumes:
       - .:/app
     environment:

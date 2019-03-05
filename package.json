@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon --exec 'kill-port --port 9229 && node --inspect=0.0.0.0:9229 index.js'",
+    "dev": "nodemon --exec 'kill-port --port 9999 && node --inspect=0.0.0.0:9999 index.js'",
     "build": "node build/build.js"
   },
   "author": "Fábio Rodrigues <fabio.info@gmail.com>",
